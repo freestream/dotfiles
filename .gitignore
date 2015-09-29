@@ -1,0 +1,10 @@
+.DS_Store
+.VimballRecord
+Makefile
+*.o
+*.log
+*.bundle
+.netrwhist
+
+files/vim/bundle/*
+!files/vim/bundle/Vundle.vim

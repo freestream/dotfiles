@@ -1,0 +1,16 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   Plugins!
+"                            Managed with vim-plug
+"                     https://github.com/junegunn/vim-plug
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+call plug#begin()
+
+Plug 'Yggdroot/indentLine'
+Plug 'scrooloose/nerdtree'
+Plug 'dbakker/vim-projectroot'
+Plug 'vim-gitgutter'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'sumpygump/php-documentor-vim'
+
+call plug#end()
