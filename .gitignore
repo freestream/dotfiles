@@ -6,5 +6,5 @@ Makefile
 *.bundle
 .netrwhist
 
-files/vim/bundle/*
-!files/vim/bundle/Vundle.vim
+files/.vim/bundle/*
+!files/.vim/autoload/plug.vim
