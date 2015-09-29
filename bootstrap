@@ -3,6 +3,7 @@
 FOLDER="$HOME/.dotfiles"
 REPO='https://github.com/freestream/dotfiles'
 FALLBACK='https://github.com/freestream/dotfiles/archive/master.zip'
+REDOSYM=false
 
 has_git() {
     git --version 2>&1 > /dev/null
@@ -30,16 +31,22 @@ clone_or_update_repo() {
     if [ -e "$FOLDER" ]; then
         cd "$FOLDER"
         git pull origin master --quiet
-        git submodule sync --quiet
-        git submodule update --init --quiet
+        REDOSYM = true
     else
-        git clone --recursive "$REPO" "$FOLDER" --quiet
+        git clone --recursive "$REPO" "$FOLDER"
     fi
+
     echo "...done"
 }
 
 redo_synlinks() {
-    # TODO
+    FILES=$(ls -a $FOLDER/files/ --ignore='.' --ignore='..');
+
+    for FILE in $FILES
+    do
+        rm -rf $HOME/$FILE
+        ln -s  $FOLDER/files/$FILE $HOME/$FILE
+    done
 }
 
 download_and_update_repo() {
@@ -67,7 +74,8 @@ download_and_update_repo() {
     echo "...extracting files"
 
     unzip file.zip -d "$TMP_DIR/files"
-    cp -r "$TMP_DIR/files" $FOLDER
+    mkdir -p $FOLDER
+    cp -r "$TMP_DIR/files/*" $FOLDER
 
     echo "...done"
 
@@ -80,6 +88,9 @@ main() {
     echo "Reticulating splines...\e"
     if [ has_git ]; then
         clone_or_update_repo
+        if [REDOSYM]; then
+            redo_synlinks
+        fi
     else
         download_and_update_repo
     fi
