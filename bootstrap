@@ -1,99 +1,16 @@
 #!/bin/bash
 
-FOLDER="$HOME/.dotfiles"
-REPO='https://github.com/freestream/dotfiles'
-FALLBACK='https://github.com/freestream/dotfiles/archive/master.zip'
-REDOSYM=false
+DIR="$( cd "$( dirname "$0" )" && pwd )"
 
-has_git() {
-    git --version 2>&1 > /dev/null
-    return $?
-}
-
-has_wget() {
-    wget --version 2>&1 > /dev/null
-    return $?
-}
-
-has_curl() {
-    curl --version 2>&1 > /dev/null
-    return $?
-}
-
-has_unzip() {
-    unzip --version 2>&1 > /dev/null
-    return $?
-}
-
-clone_or_update_repo() {
-    echo "...updating from GIT repository"
-
-    if [ -e "$FOLDER" ]; then
-        cd "$FOLDER"
-        git pull origin master --quiet
-        REDOSYM = true
-    else
-        git clone --recursive "$REPO" "$FOLDER"
-    fi
-
-    echo "...done"
-}
-
-redo_synlinks() {
-    FILES=$(ls -a $FOLDER/files/ --ignore='.' --ignore='..');
+main() {
+    FILES=$(ls -a $DIR/files/ --ignore='.' --ignore='..');
 
     for FILE in $FILES
     do
         rm -rf $HOME/$FILE
         ln -s  $FOLDER/files/$FILE $HOME/$FILE
     done
-}
-
-download_and_update_repo() {
-    echo "...using fallback procedure"
-
-    if [ ! has_unzip ]; then
-        echo "Missing key components to setup files"
-        exit 1
-    fi
-
-    TMP_DIR=$(mktemp -d --tmpdir phpcs-pre-receive-hook.XXXXXXXX)
-
-    echo "...downloading repository"
-
-    if [ has_wget ]; then
-        wget $FALLBACK -O "$TMP_DIR/master.zip" >> /dev/null
-    elif [ has_curl ]; then
-        curl -o "$TMP_DIR/master.zip" $FALLBACK >> /dev/null
-    else
-        echo "Unable to download respiratory"
-        exit 1
-    fi
-
-    echo "...done"
-    echo "...extracting files"
-
-    unzip file.zip -d "$TMP_DIR/files"
-    mkdir -p $FOLDER
-    cp -r "$TMP_DIR/files/*" $FOLDER
-
-    echo "...done"
-
-    echo "...creating symlinks"
-    redo_synlinks
-    echo "...done"
-}
-
-main() {
-    echo "Reticulating splines...\e"
-    if [ has_git ]; then
-        clone_or_update_repo
-        if [REDOSYM]; then
-            redo_synlinks
-        fi
-    else
-        download_and_update_repo
-    fi
+    echo "Symbolic links created to the home directory"
 }
 
 main
