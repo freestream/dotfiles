@@ -12,5 +12,8 @@ Plug 'dbakker/vim-projectroot'
 Plug 'vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sumpygump/php-documentor-vim'
+Plug 'scrooloose/syntastic'
+Plug 'mattn/emmet-vim'
+Plug 'Valloric/YouCompleteMe'
 
 call plug#end()

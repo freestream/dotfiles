@@ -2,6 +2,7 @@
 "                         Anton Samuelsson Vim Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let mapleader="'"                                           " Set leader key
 source ~/.vim-plugins                                       " Include plugin dependencies
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -23,25 +24,22 @@ set title                                                   " Xterm title
 set ttyfast                                                 " Fast scrolling
 set nowrap                                                  " No wrapping of lines!
 
+let g:indentLine_leadingSpaceEnabled = 1                    " Highlight whitespaces
+let g:indentLine_leadingSpaceChar = "."                     " Highlight leading space as '.'
+set list listchars=tab:»·,trail:·                           " Highlight tailing whitespaces as '·'
+set list lcs=tab:\|_                                        " Highlight all tabs as '_'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Appearance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:indentLine_leadingSpaceEnabled = 1                    " Show whitespaces
-let g:indentLine_leadingSpaceChar = "."                     " Show leading space as '.'
-
 set t_Co=256                                                " 256 colors in terminal
-
-set list lcs=tab:\|_                                        " Show tabs as '_'
-
 colorscheme molokai                                         " Sets the color scheme
 let g:molokai_original = 1                                  " Color scheme theme to use
 let g:rehash256 = 1                                         " Use 256 color scheme
 
 set cursorline                                              " Enables cursor lines
 hi CursorLine term=bold cterm=bold guibg=#2c2d27            " Highlight color for cursor lines
-
-set list listchars=tab:»·,trail:·                           " Highlight extra whitespaces
 
 " Highlight the 80 and 120 and fallback for Vim < v7.3
 
@@ -56,26 +54,30 @@ endif
 "                                  Formatting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"filetype plugin indent on
+filetype plugin indent on                                   " File-type based indentation
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab          " Tab settings
-
-"autocmd FileType make setlocal noexpandtab
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Plugin Helpers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:gitgutter_enabled = 1                                 " Enable GIT in gutter
+" Enable GIT in gutter
+let g:gitgutter_enabled = 1
 
 " ProjectRootCD - Automatically cd to current project
 autocmd BufEnter * ProjectRootCD
-nnoremap <leader>n :ProjectRootExe NERDTree<CR>             " Open at buffers project root
 
-nnoremap <C-n> :NERDTreeToggle<CR>                          " Toggle NerdTree
-nnoremap <leader>nf :NERDTreeFind<CR>                       " ?
-nnoremap <leader>no :NERDTree ~/www/dev/                    " ?
-let NERDTreeQuitOnOpen=1                                    " Automatically close nerdtree on file open
+" Open at buffers project root
+nnoremap <leader>n :ProjectRootExe NERDTree<CR>
+
+" Toggle NerdTree (CTRL+n)
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+" Shortcut to open the www folder
+nnoremap <leader>no :NERDTree /var/www/
+
+" Automatically close nerdtree on file open
+let NERDTreeQuitOnOpen=1
 
 " Auto open NERDTree if no file is specified.
 
@@ -96,7 +98,7 @@ function TrimWhiteSpace()
   ''
 :endfunction
 
-map <F2> :call TrimWhiteSpace()<CR>
+nnoremap <leader>tw :call TrimWhiteSpace()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Custom Mappings
