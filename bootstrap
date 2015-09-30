@@ -3,12 +3,15 @@
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 main() {
-    FILES=$(ls -a $DIR/files/ --ignore='.' --ignore='..');
+    FILES=$(ls -a $DIR/files/);
 
     for FILE in $FILES
     do
-        rm -rf $HOME/$FILE
-        ln -s  $FOLDER/files/$FILE $HOME/$FILE
+    if [ ! -d "$FILE" ]; then
+        echo "$DIR/files/$FILE $HOME/$FILE"
+            rm -rf $HOME/$FILE
+            ln -s  $DIR/files/$FILE $HOME/$FILE
+    fi
     done
     echo "Symbolic links created to the home directory"
 }
