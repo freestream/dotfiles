@@ -24,12 +24,12 @@ set title                                                   " Xterm title
 set ttyfast                                                 " Fast scrolling
 set nowrap                                                  " No wrapping of lines!
 set ww+=<,>                                                 " Make the left/right movement wrap to previous/next line
+set spell                                                   " Spell check of strings
 
 let g:indentLine_leadingSpaceEnabled = 1                    " Highlight whitespaces
 let g:indentLine_leadingSpaceChar = "."                     " Highlight leading space as '.'
-set list listchars=tab:»·,trail:·                           " Highlight tailing whitespaces as '·'
-set list lcs=tab:\|_                                        " Highlight all tabs as '_'
-let macvim_skip_colorscheme=1
+set list
+set listchars=tab:▸\ ,trail:·                               " Highlight tailing whitespaces as '·'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Appearance
@@ -100,6 +100,10 @@ autocmd VimEnter * call StartUp()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Custom Functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! TrimWhiteSpace()
+  %s/\s*$//
+  ''
+:endfunction
 
 nnoremap <leader>tw :call TrimWhiteSpace()<CR>
 
@@ -109,4 +113,4 @@ nnoremap <leader>tw :call TrimWhiteSpace()<CR>
 
 " Refactoring of variables
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
-nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+
