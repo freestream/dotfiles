@@ -23,11 +23,13 @@ set shell=bash                                              " ...
 set title                                                   " Xterm title
 set ttyfast                                                 " Fast scrolling
 set nowrap                                                  " No wrapping of lines!
+set ww+=<,>                                                 " Make the left/right movement wrap to previous/next line
 
 let g:indentLine_leadingSpaceEnabled = 1                    " Highlight whitespaces
 let g:indentLine_leadingSpaceChar = "."                     " Highlight leading space as '.'
 set list listchars=tab:»·,trail:·                           " Highlight tailing whitespaces as '·'
 set list lcs=tab:\|_                                        " Highlight all tabs as '_'
+let macvim_skip_colorscheme=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Appearance
@@ -74,10 +76,16 @@ nnoremap <leader>n :ProjectRootExe NERDTree<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Shortcut to open the www folder
-nnoremap <leader>no :NERDTree /var/www/
+nnoremap <leader>no :NERDTree ~/www/
 
 " Automatically close nerdtree on file open
 let NERDTreeQuitOnOpen=1
+
+" Default size of the tree
+let g:NERDTreeWinSize = 60
+
+" Show hidden files in tree by default
+let NERDTreeShowHidden = 1
 
 " Auto open NERDTree if no file is specified.
 
@@ -92,11 +100,6 @@ autocmd VimEnter * call StartUp()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Custom Functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
-:endfunction
 
 nnoremap <leader>tw :call TrimWhiteSpace()<CR>
 
