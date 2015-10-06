@@ -104,6 +104,8 @@ function! TrimWhiteSpace()
 
 nnoremap <leader>tw :call TrimWhiteSpace()<CR>
 
+autocmd BufWritePre * :call TrimWhiteSpace()
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Custom Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
