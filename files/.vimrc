@@ -81,9 +81,6 @@ nnoremap <leader>no :NERDTree ~/www/
 " Automatically close nerdtree on file open
 let NERDTreeQuitOnOpen=1
 
-" Default size of the tree
-let g:NERDTreeWinSize = 60
-
 " Show hidden files in tree by default
 let NERDTreeShowHidden = 1
 
