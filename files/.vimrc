@@ -106,6 +106,13 @@ nnoremap <leader>tw :call TrimWhiteSpace()<CR>
 
 autocmd BufWritePre * :call TrimWhiteSpace()
 
+" TName
+" Set tab name automatically
+augroup tabname
+    autocmd!
+    autocmd BufEnter * TName substitute(system('basename "$PWD"'), "\@", "", "")
+augroup END
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Custom Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

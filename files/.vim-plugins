@@ -15,5 +15,6 @@ Plug 'sumpygump/php-documentor-vim'
 Plug 'scrooloose/syntastic'
 Plug 'mattn/emmet-vim'
 Plug 'ervandew/supertab'
+Plug 'tab-name'
 
 call plug#end()
