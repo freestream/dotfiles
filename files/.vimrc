@@ -35,6 +35,7 @@ set listchars=tab:▸\ ,trail:·                               " Highlight taili
 "                                  Appearance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+syntax on                                                   " Show syntax highlighting
 set t_Co=256                                                " 256 colors in terminal
 colorscheme molokai                                         " Sets the color scheme
 let g:molokai_original = 1                                  " Color scheme theme to use
