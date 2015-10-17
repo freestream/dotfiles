@@ -16,5 +16,8 @@ Plug 'scrooloose/syntastic'
 Plug 'mattn/emmet-vim'
 Plug 'ervandew/supertab'
 Plug 'tab-name'
+Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()

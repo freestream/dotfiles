@@ -60,7 +60,7 @@ filetype plugin indent on                                   " File-type based in
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab          " Tab settings
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                Plugin Helpers
+"                                Plugin Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable GIT in gutter
@@ -93,6 +93,34 @@ function! StartUp()
 endfunction
 
 autocmd VimEnter * call StartUp()
+
+" AirLine
+set noshowmode
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+set ttimeoutlen=50
+
+let g:powerline_symbols = 'fancy'
+let g:airline_theme = 'tomorrow'
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#format = 1
+
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Custom Functions
