@@ -8,5 +8,5 @@ Makefile
 
 files/.vim/plugged/*
 files/.vim/bundle/*
-!files/.vim/autoload/plug.vim
-!files/.vim/colors/molokai.vim
+!files/.vim/bundle/Vundle.vim
+!files/.vim/colors/gruvbox.vim

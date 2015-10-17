@@ -37,9 +37,9 @@ set listchars=tab:▸\ ,trail:·                               " Highlight taili
 
 syntax on                                                   " Show syntax highlighting
 set t_Co=256                                                " 256 colors in terminal
-colorscheme molokai                                         " Sets the color scheme
-let g:molokai_original = 1                                  " Color scheme theme to use
-let g:rehash256 = 1                                         " Use 256 color scheme
+
+set background=dark
+colorscheme gruvbox
 
 set cursorline                                              " Enables cursor lines
 hi CursorLine term=bold cterm=bold guibg=#2c2d27            " Highlight color for cursor lines
@@ -105,7 +105,7 @@ let g:airline_symbols.space = "\ua0"
 set ttimeoutlen=50
 
 let g:powerline_symbols = 'fancy'
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'gruvbox'
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#format = 1
