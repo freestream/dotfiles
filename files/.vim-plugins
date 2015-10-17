@@ -1,23 +1,28 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                   Plugins!
-"                            Managed with vim-plug
-"                     https://github.com/junegunn/vim-plug
+"                                   Plugin !
+"                            Managed with Vundle
+"                        https://github.com/VundleVim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-call plug#begin()
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
 
-Plug 'Yggdroot/indentLine'
-Plug 'scrooloose/nerdtree'
-Plug 'dbakker/vim-projectroot'
-Plug 'vim-gitgutter'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'sumpygump/php-documentor-vim'
-Plug 'scrooloose/syntastic'
-Plug 'mattn/emmet-vim'
-Plug 'ervandew/supertab'
-Plug 'tab-name'
-Plug 'kien/ctrlp.vim'
-Plug 'bling/vim-airline'
-Plug 'tpope/vim-fugitive'
+call vundle#begin()
 
-call plug#end()
+Plugin 'Yggdroot/indentLine'
+Plugin 'scrooloose/nerdtree'
+Plugin 'dbakker/vim-projectroot'
+Plugin 'vim-gitgutter'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'sumpygump/php-documentor-vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'mattn/emmet-vim'
+Plugin 'ervandew/supertab'
+Plugin 'tab-name'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+
+call vundle#end()
+filetype plugin indent on
