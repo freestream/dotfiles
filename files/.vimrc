@@ -25,6 +25,7 @@ set ttyfast                                                 " Fast scrolling
 set nowrap                                                  " No wrapping of lines!
 set ww+=<,>                                                 " Make the left/right movement wrap to previous/next line
 set spell                                                   " Spell check of strings
+set nobomb                                                  " Have no interest in those
 
 let g:indentLine_leadingSpaceEnabled = 1                    " Highlight whitespaces
 let g:indentLine_leadingSpaceChar = "."                     " Highlight leading space as '.'
