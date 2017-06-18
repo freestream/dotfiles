@@ -10,7 +10,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
-Plugin 'morhetz/gruvbox'
+Plugin 'mhartington/oceanic-next'
 Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdtree'
 Plugin 'dbakker/vim-projectroot'

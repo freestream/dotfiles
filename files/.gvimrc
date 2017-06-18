@@ -11,5 +11,5 @@ set t_vb=
 
 set guifont=Monaco:h11
 
-colorscheme gruvbox
+colorscheme OceanicNext
 set guioptions-=L                                           " Remove left-hand scroll bar
