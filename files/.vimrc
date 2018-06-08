@@ -27,8 +27,6 @@ set ww+=<,>                                                 " Make the left/righ
 set spell                                                   " Spell check of strings
 set nobomb                                                  " Have no interest in those
 
-let g:indentLine_leadingSpaceEnabled = 1                    " Highlight whitespaces
-let g:indentLine_leadingSpaceChar = "."                     " Highlight leading space as '.'
 set list
 set listchars=tab:▸\ ,trail:·                               " Highlight tailing whitespaces as '·'
 
@@ -44,15 +42,6 @@ colorscheme gruvbox
 
 set cursorline                                              " Enables cursor lines
 hi CursorLine term=bold cterm=bold guibg=#2c2d27            " Highlight color for cursor lines
-
-" Highlight the 80 and 120 and fallback for Vim < v7.3
-
-if exists('+colorcolumn')
-  highlight ColorColumn ctermbg=235 guibg=#2c2d27
-  let &colorcolumn="80,".join(range(120,999),",")
-else
-  autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Formatting
