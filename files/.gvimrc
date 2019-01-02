@@ -16,3 +16,5 @@ set guioptions-=L                                           " Remove left-hand s
 let g:vim_json_syntax_conceal = 0
 set vb t_vb=                                                " Disable beep and flash
 
+set conceallevel=0                                          " Remove auto hiding of double quotes in JSON
+
