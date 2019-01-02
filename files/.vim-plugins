@@ -24,6 +24,8 @@ Plugin 'tab-name'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'vim-python/python-syntax'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on

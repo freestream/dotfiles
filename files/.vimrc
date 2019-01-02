@@ -27,8 +27,7 @@ set ww+=<,>                                                 " Make the left/righ
 set spell                                                   " Spell check of strings
 set nobomb                                                  " Have no interest in those
 
-"let g:indentLine_leadingSpaceEnabled = 1                    " Highlight whitespaces
-"let g:indentLine_leadingSpaceChar = "."                     " Highlight leading space as '.'
+set conceallevel=0
 set list
 set listchars=tab:▸\ ,trail:·                               " Highlight tailing whitespaces as '·'
 
@@ -44,15 +43,6 @@ colorscheme OceanicNext
 
 set cursorline                                              " Enables cursor lines
 hi CursorLine term=bold cterm=bold guibg=#2c2d27            " Highlight color for cursor lines
-
-" Highlight the 80 and 120 and fallback for Vim < v7.3
-
-"if exists('+colorcolumn')
-"  highlight ColorColumn ctermbg=235 guibg=#2c2d27
-"  let &colorcolumn="80,".join(range(120,999),",")
-"else
-"  autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-"endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Formatting
@@ -123,6 +113,17 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
+
+" VIM-GO
+let g:go_autodetect_gopath = 1
+let g:go_list_type = "quickfix"
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Custom Functions
