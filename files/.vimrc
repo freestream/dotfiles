@@ -31,6 +31,8 @@ set conceallevel=0
 set list
 set listchars=tab:▸\ ,trail:·                               " Highlight tailing whitespaces as '·'
 
+set noeb vb t_vb=                                           " Disable beep and flash
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Appearance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
